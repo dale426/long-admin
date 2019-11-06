@@ -1,22 +1,26 @@
 import HttpRequest from '@/libs/axios'
 
-const domain = process.env.VUE_APP_COMMON_URL
+const domain = process.env.VUE_APP_COMMON_URL || '/'
 const axios = new HttpRequest(domain)
 
 // post
-export const user_page = (opts) => {
+export const login = ({ userName, password }) => {
+  const data = {
+    userName,
+    password
+  }
   return axios.request({
-    url: '/user/page',
-    data: opts,
+    url: 'login',
+    data,
     method: 'post'
   })
 }
 
 // get
-export const user_post = (opts) => {
+export const get_info = (token) => {
   return axios.request({
-    url: '/user/post',
-    params: opts,
+    url: 'get_info',
+    params: { token },
     method: 'get'
   })
 }

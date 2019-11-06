@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import routes from './routers'
+import routes from './routers'
 // import store from '@/store'
 // import { setToken, getToken, canTurnTo, setTitle } from '@/libs/util'
 // import config from '@/config'
@@ -8,7 +8,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 const router = new Router({
-  // routes,
+  routes,
   // mode: 'history'
 })
 /* const LOGIN_PAGE_NAME = 'login'

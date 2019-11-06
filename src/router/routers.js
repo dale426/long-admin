@@ -23,8 +23,8 @@ export default [
       title: 'Login - 登录',
       hideInMenu: true
     },
-    component: () => import('@/view/login/login.vue')
-  }, /* {
+    component: () => import('@/views/login/login.vue')
+  }, {
     path: '/',
     name: '_home',
     redirect: '/home',
@@ -43,7 +43,50 @@ export default [
           notCache: true,
           icon: 'md-home'
         },
-        component: () => import('@/view/single-page/home')
+        component: () => import('@/views/home/home.vue')
       }
     ]
-  } */]
+  }, {
+    path: '/',
+    name: '_home',
+    redirect: '/home',
+    component: Main,
+    meta: {
+      hideInMenu: true,
+      notCache: true
+    },
+    children: [
+      {
+        path: '/home',
+        name: 'home',
+        meta: {
+          hideInMenu: true,
+          title: '首页',
+          notCache: true,
+          icon: 'md-home'
+        },
+        component: () => import('@/views/home/home.vue')
+      }
+    ]
+  }, {
+    path: '/test',
+    name: 'test',
+    component: Main,
+    meta: {
+      // hideInMenu: true,
+      notCache: true
+    },
+    children: [
+      {
+        path: '/a',
+        name: 'a',
+        meta: {
+          // hideInMenu: true,
+          title: '测试页面',
+          notCache: true,
+          icon: 'md-home'
+        },
+        component: () => import('@/views/example')
+      }
+    ]
+  }]
